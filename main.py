@@ -43,6 +43,7 @@ time.sleep(2)
 unique_titles = set()
 
 df = pd.DataFrame(columns=['ID', 'Title', 'Book rating', 'Total votes'])
+book_id = 1
 
 try:
     #  Check if any books are available for the author provided
@@ -72,7 +73,6 @@ try:
             # Use BeautifulSoup
             soup = BeautifulSoup(page_source, 'lxml')
             books = soup.find_all('div', class_='authorAllBooks__single')
-            book_id = 1
 
             for index, book in enumerate(books):
                 titles = book.find('a').text.strip().replace('\n', '').replace('\r', '')
